@@ -1,0 +1,43 @@
+
+{% extends "_base.html" %}
+
+{% block content %}
+	<table class="table table-striped" align=center>
+		 <h1 align="center">My Cards</h1>
+		 <br>
+		 <br>
+		 <button class="btn btn-default active"><a href="add">Add Card</a></button>
+		 <br>
+		 <br>
+	{% if customers %}
+		<tr>
+		<td>Name</td>
+		<td>Expiry Date</td>
+		<td>Type of Card</td>
+		<td>cvv</td>
+		<td>Card Number</td>
+		<td colspan="2">Actions</td></tr> 
+
+	    {% for card in customers %}
+	    <tr>
+	    
+	        <td>{{ card.friendly_name}}</td>
+	        <td>{{ card.expiry_date}}</td>
+	        <td>{{ card.type_of_card}}</td>
+	        <td>{{ card.cvv}}</td>
+	        <td>{{ card.card_no}}</td>
+	     <td><a href="{{card.id}}/edit">edit</a></td>
+	     <td><a href="{{card.id}}/delete">delete</a></td>
+	    
+	    </tr>
+	    {% endfor %}
+	    
+	{% else %}
+	    <p>No polls are available.</p>
+	{% endif %}
+	</table>
+{% endblock %}
+
+
+
+

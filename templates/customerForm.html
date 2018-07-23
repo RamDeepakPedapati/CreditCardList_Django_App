@@ -1,0 +1,36 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<div class="container">
+	<div class="cols-xs-6 cols-xs-offset-3">
+		<form method="post">
+			{% csrf_token %}
+			<fieldset>
+				<legend>Add Card</legend>
+				<div class="form-group">
+					<label for="{{ form.friendly_name.id_for_label }}">Friendly Name</label>
+					{{form.friendly_name}}
+				</div>
+				<div class="form-group">
+					<label for="{{ form.expiry_date.id_for_label }}">Expiry Date</label>
+					{{form.expiry_date}}
+				</div>
+				<div class="form-group">
+					<label for="{{ form.type_of_card.id_for_label }}">Type Of Card</label>
+					{{form.type_of_card}}
+				</div>
+				<div class="form-group">
+					<label for="{{ form.cvv.id_for_label }}">CVV</label>
+					{{form.cvv}}
+				</div>
+				<div class="form-group">
+					<label for="{{ for.card_no.id_for_label }}">Card Number</label>
+					{{form.card_no}}
+				</div>
+				<input type="submit" value="submit"/>
+			</fieldset>
+		</form>
+	</div>
+</div>
+
+{% endblock %}

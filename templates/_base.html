@@ -1,0 +1,32 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>{{Title}}</title>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	
+	<style type="text/css">
+		.navbar-expand-lg {
+     background-color: #5e90e0;
+     border-color: #222222;
+}
+.button{
+	margin-top: 100px;
+}
+
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+{% if request.user.is_authenticated%}
+<button class="btn btn-default active pull-right"  style="float:right; margin-top: 10px; margin-right: 10px;">
+ <a href="{% url 'myapp:logout' %}">Logout</a></button>
+{% endif %}
+</nav>
+<div class="container">
+
+{% block content %}
+
+{% endblock %}
+</div>
+</body>
+</html>
